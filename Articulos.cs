@@ -24,5 +24,6 @@ namespace tp_final
             this.alto = alto;
         }
         ~Articulos() { }
+        //hola
     }
 }
