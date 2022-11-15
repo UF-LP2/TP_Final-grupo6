@@ -35,21 +35,21 @@ namespace tp_final
             int j = 0;
             while (j < ListaPedidos.Count)
             {
-                if (ListaPedidos[j].cliente.Direccion == "1" || ListaPedidos[j].cliente.Direccion == "0")
+                if (ListaPedidos[j].cliente.Barrio == (Barrio)1 || ListaPedidos[j].cliente.Barrio == (Barrio)0)
                 //la direccion pertenece al recorrido 1  o es de Liniers
                 {
                     ListaDeRecorrido1.Add(ListaPedidos[j]);//guardo ese pedido en mi sublista del recorrido 1
 
                 }
-                else if (ListaPedidos[j].cliente.Direccion == "2")
+                else if (ListaPedidos[j].cliente.Barrio == (Barrio)2)
                 //la direccion pertenece al recorrido 2
                 {
-                   ListaDeRecorrido2.Add(ListaPedidos[j]);//guardo ese pedido en mi sublista del recorrido 2
+                    ListaDeRecorrido2.Add(ListaPedidos[j]);//guardo ese pedido en mi sublista del recorrido 2
                 }
                 else
                 //la direccion pertenece al recorrido 3
                 {
-                   ListaDeRecorrido3.Add(ListaPedidos[j]);//guardo ese pedido en mi sublista del recorrido 3
+                    ListaDeRecorrido3.Add(ListaPedidos[j]);//guardo ese pedido en mi sublista del recorrido 3
                 }
                 j++;
             }
@@ -67,7 +67,6 @@ namespace tp_final
             int ContadorNafta = 0;
             Pedidos auxiliar; // una variable auxiliar del tipo pedido
             List<Pedidos> ListaAux = new List<Pedidos>();
-           // ListaAux[1]=null;
             ListaAux.Add(deposito); //Deposito seria la direccion del donde está el deposito el primero en la lista del ruteo será Liniers que es de donde partimos, no sumamos distancia
             ListaAux.Add(Distancias(ListaAux[0], ListaDePedidos, vehiculo));//la ciudad que este mas cerca al deposito la visito primero 
             vehiculo.kmPorViaje = ListaAux[1].cliente.distancia_a_Liniers; // agregamos los km que hay a la ciudad más cercana
@@ -103,7 +102,7 @@ namespace tp_final
             int ContadorNafta = 0;
             Clientes cliente = new Clientes("a", "b", "0", "0", 0, 0, 0);
             List<Articulos> art = new List<Articulos>() { };
-            Pedidos ProxPedido=new Pedidos(0,0,cliente,art,false,0,0); //es un elemento auxiliar del tipo pedido
+            Pedidos ProxPedido = new Pedidos(0, 0, cliente, art, false, 0, 0); //es un elemento auxiliar del tipo pedido
             if (ListaPedidos.Count == 1)// significa que llegue al ultimo pedido de mi recorrido
             {
                 ProxPedido = ListaPedidos[0]; // es el único elemento por ende es el primero de mi lista
@@ -118,7 +117,7 @@ namespace tp_final
                 }
                 else
                 {
-                    ListaPedidos.RemoveAt(ProxPedido.ID);//la borramos porque ya pertenece a la ruta de entrega, y pasara a ser mi nuevo nodo de actual
+                    ListaPedidos.Remove(ProxPedido);//la borramos porque ya pertenece a la ruta de entrega, y pasara a ser mi nuevo nodo de actual
                     return ProxPedido;
                 }
             }
@@ -189,28 +188,28 @@ namespace tp_final
                 ListaVehiculos[0].Vehiculo = TipoVehiculo.furgon;
                 if (cont2 < cont3)
                 {
-                   ListaVehiculos[1].Vehiculo = TipoVehiculo.camioneta;
-                   ListaVehiculos[2].Vehiculo = TipoVehiculo.furgoneta;
+                    ListaVehiculos[1].Vehiculo = TipoVehiculo.camioneta;
+                    ListaVehiculos[2].Vehiculo = TipoVehiculo.furgoneta;
                 }
                 else
                 {
-                   ListaVehiculos[1].Vehiculo = TipoVehiculo.furgoneta;
-                   ListaVehiculos[2].Vehiculo = TipoVehiculo.camioneta;
+                    ListaVehiculos[1].Vehiculo = TipoVehiculo.furgoneta;
+                    ListaVehiculos[2].Vehiculo = TipoVehiculo.camioneta;
                 }
             }
 
             if (cont2 > cont3 && cont2 > cont1)
             {
-               ListaVehiculos[1].Vehiculo = TipoVehiculo.furgon;
+                ListaVehiculos[1].Vehiculo = TipoVehiculo.furgon;
                 if (cont1 < cont3)
                 {
-                   ListaVehiculos[0].Vehiculo = TipoVehiculo.camioneta;
-                   ListaVehiculos[2].Vehiculo = TipoVehiculo.furgoneta;
+                    ListaVehiculos[0].Vehiculo = TipoVehiculo.camioneta;
+                    ListaVehiculos[2].Vehiculo = TipoVehiculo.furgoneta;
                 }
                 else if (cont1 > cont3)
                 {
-                   ListaVehiculos[2].Vehiculo = TipoVehiculo.camioneta;
-                   ListaVehiculos[0].Vehiculo = TipoVehiculo.furgoneta;
+                    ListaVehiculos[2].Vehiculo = TipoVehiculo.camioneta;
+                    ListaVehiculos[0].Vehiculo = TipoVehiculo.furgoneta;
                 }
 
             }
@@ -696,24 +695,32 @@ namespace tp_final
 
             { matriz[i, 0] = 0; }
 
-
+            bool salida;
             //llenamos la matriz de forma ascendente
-
             for (i = 1; i < ListaPedidos.Count; i++)
             {
+                salida = false;
                 for (j = 0; j <= vehiculo.volumenDeCarga; j++)
                 {
                     //verificamos si el peso del articulo i es menor o igual a la capacidad del volumen, lo tomo como máximo una vez incluyendo el articulo actual y otra vez sin incluirlo (me fijo cuando tengo max beneficio)
-
-                    if (VolumenPedidos(ListaPedidos[i - 1]) <= j && contpeso + PesoPedidos(ListaPedidos[i - 1]) <= vehiculo.pesoMaxDeCarga)
+                    if (j == 0)
                     {
-                        contpeso += PesoPedidos(ListaPedidos[i - 1]);
-                        matriz[i, j] = Math.Max(beneficios[i - 1] + matriz[i - 1, j - (int)VolumenPedidos(ListaPedidos[i - 1])], matriz[i - 1, j]);
-
+                        matriz[i, j] = 0;
                     }
-                    else //no se puede incluir el elemento actual
-                    {
-                        matriz[i, j] = matriz[i - 1, j];
+                    else
+                    {if (salida == false)
+                        {
+                            if (VolumenPedidos(ListaPedidos[i - 1]) <= j && contpeso + PesoPedidos(ListaPedidos[i - 1]) <= vehiculo.pesoMaxDeCarga)
+                            {
+                                contpeso += PesoPedidos(ListaPedidos[i - 1]);
+                                matriz[i, j] = Math.Max(beneficios[i - 1] + matriz[i - 1, j - (int)VolumenPedidos(ListaPedidos[i - 1])], matriz[i - 1, j]);
+                                salida = true;
+                            }
+                            else //no se puede incluir el elemento actual
+                            {
+                                matriz[i, j] = matriz[i - 1, j];
+                            }
+                        }
                     }
                 }
             }
@@ -732,6 +739,7 @@ namespace tp_final
                     }
                 }
             }
+
             //una vez cargados los pedidos que ENTRAN en el camion, los ordenamos por orden de cercania entre nodos
 
         }

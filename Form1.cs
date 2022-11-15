@@ -35,6 +35,11 @@ namespace tp_final
         List<Articulos> ListaArticulos3;
         List<Articulos> ListaArticulos4;
         List<Articulos> ListaArticulos5;
+        List<Articulos> ListaArticulos6;
+        List<Articulos> ListaArticulos7;
+        List<Articulos> ListaArticulos8;
+        List<Articulos> ListaArticulos9;
+        List<Articulos> ListaArticulos10;
         List<Articulos> Listadeposito;
 
         Clientes cliente1;
@@ -43,12 +48,22 @@ namespace tp_final
         Clientes cliente4;
         Clientes cliente5;
         Clientes cliente6;
+        Clientes cliente7;
+        Clientes cliente8;
+        Clientes cliente9;
+        Clientes cliente10;
+        Clientes cliente11;
 
         Pedidos Pedido1;
         Pedidos Pedido2;
         Pedidos Pedido3;
         Pedidos Pedido4;
         Pedidos Pedido5;
+        Pedidos Pedido6;
+        Pedidos Pedido7;
+        Pedidos Pedido8;
+        Pedidos Pedido9;
+        Pedidos Pedido10;
         Pedidos deposito;
 
         List<Pedidos> ListaPedidos;
@@ -92,6 +107,12 @@ namespace tp_final
            ListaArticulos4 = new List<Articulos>();
            ListaArticulos5 = new List<Articulos>();
            Listadeposito=new List<Articulos>();
+           ListaArticulos6 = new List<Articulos>();
+           ListaArticulos7 = new List<Articulos>();
+           ListaArticulos8 = new List<Articulos>();
+           ListaArticulos9 = new List<Articulos>();
+           ListaArticulos10 = new List<Articulos>();
+
             ListaArticulos1.Add(cafetera);
             ListaArticulos2.Add(licuadora);
             ListaArticulos2.Add(freezer);
@@ -100,27 +121,50 @@ namespace tp_final
             ListaArticulos4.Add(televisor);
             ListaArticulos4.Add(celular);
             ListaArticulos5.Add(televisor);
+            ListaArticulos6.Add(lavarropa);
+            ListaArticulos6.Add(calefon);
+            ListaArticulos7.Add(celular);
+            ListaArticulos8.Add(exprimidor);
+            ListaArticulos8.Add(impresora);
+            ListaArticulos8.Add(termotanque);
+            ListaArticulos9.Add(heladera);
+            ListaArticulos10.Add(freezer);
 
-            cliente1 =new Clientes("pepe","juarez","34567892","Amoedo 1234",0,Barrio.VelezSarfield,Distancia.VelezSarfield);
+             cliente1 =new Clientes("pepe","juarez","34567892","Amoedo 1234",0,Barrio.VelezSarfield,Distancia.VelezSarfield);
             cliente2 = new Clientes("maria", "perez", "21342564", "Moreno 654", 0, Barrio.Almagro, Distancia.Almagro);
             cliente3 = new Clientes("pilar", "ruiz", "45665231", "12 de octubre 123", 0, Barrio.Avellaneda, Distancia.Avellaneda);
+            cliente7 = new Clientes("Diego", "Ramos", "21347892", "Sarmiento 1853", 0, Barrio.Boedo, Distancia.Boedo);
             cliente4 = new Clientes("Pedro", "Gomez", "21432560", "Belgrano 1014", 0, Barrio.Caballito, Distancia.Caballito);
             cliente5 = new Clientes("Sofia", "Lombardi", "44534218", "Alberdi 560", 0, Barrio.PuertoMadero, Distancia.PuertoMadero);
             cliente6 = new Clientes("deposito", "deposito", "0", "Liniers", 0, Barrio.Liniers, Distancia.Liniers);
+            cliente8 = new Clientes("Marta", "Chas", "31456892", "Callao 233", 0, Barrio.Coghlan, Distancia.Coghlan);
+            cliente9 = new Clientes("Juan", "Lopez", "23456892", "Riobamba 345", 0, Barrio.Mataderos, Distancia.Mataderos);
+            cliente10 = new Clientes("Martina", "Schawrzman", "44556892", "Pueyrredon 8273", 0, Barrio.SanIsidro, Distancia.SanIsidro);
+            cliente11 = new Clientes("Olivia", "Jimenez", "42356892", "Urquiza 623", 0, Barrio.SanTelmo, Distancia.SanTelmo);
 
-           Pedido1 =new Pedidos(12,TipoPedido.express,cliente1,ListaArticulos3,false,0,0);
+            Pedido1 =new Pedidos(12,TipoPedido.express,cliente1,ListaArticulos3,false,0,0);
            Pedido2 = new Pedidos(0134, TipoPedido.normal, cliente2, ListaArticulos4, false, 0, 0);
            Pedido3 = new Pedidos(312, TipoPedido.normal, cliente3, ListaArticulos5, false, 0, 0);
            Pedido4 = new Pedidos(12, TipoPedido.express, cliente5, ListaArticulos2, false, 0, 0);
            Pedido5 = new Pedidos(111, TipoPedido.diferido, cliente4, ListaArticulos1, false, 0, 0);
-           deposito = new Pedidos(0, TipoPedido.express, cliente6,Listadeposito, true, 0, 0);
+            Pedido6 = new Pedidos(987, TipoPedido.express, cliente9, ListaArticulos6, false, 0, 0);
+            Pedido7 = new Pedidos(126, TipoPedido.diferido, cliente10, ListaArticulos7, false, 0, 0);
+            Pedido8 = new Pedidos(142, TipoPedido.express, cliente7, ListaArticulos8, false, 0, 0);
+            Pedido9 = new Pedidos(1562, TipoPedido.normal, cliente8, ListaArticulos9, false, 0, 0);
+            Pedido10 = new Pedidos(152, TipoPedido.express, cliente9, ListaArticulos10, false, 0, 0);
+            deposito = new Pedidos(0, TipoPedido.express, cliente6,Listadeposito, true, 0, 0);
 
             ListaPedidos = new List<Pedidos>();
             ListaPedidos.Add(Pedido1);
             ListaPedidos.Add(Pedido2);
+            ListaPedidos.Add(Pedido7);
             ListaPedidos.Add(Pedido3);
             ListaPedidos.Add(Pedido4);
             ListaPedidos.Add(Pedido5);
+            ListaPedidos.Add(Pedido6);
+            ListaPedidos.Add(Pedido8);
+            ListaPedidos.Add(Pedido9);
+            ListaPedidos.Add(Pedido10);
 
             ListaRecorrido1 = new List<Pedidos>();
             ListaRecorrido2 = new List<Pedidos>();
@@ -148,34 +192,20 @@ namespace tp_final
             cocimundo.AsignarVehiculoARecorrido(cont1, cont2, cont3);
 
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        List<Pedidos> ListaFinal1 = new();
+        private void button8_Click(object sender, EventArgs e)
         {   //RECORRIDO 1
             // ANALISIS DE MI RECORRIDO + ALMACENAMIENTO DE PEDIDOS
             cocimundo.AsignarCostoEnvio(cocimundo.ListaDeRecorrido1, cocimundo.ListaVehiculos[0]);
             List<Pedidos> PedidosACargar1 = new List<Pedidos>();
            cocimundo.ElementosACargar(cocimundo.ListaDeRecorrido1, cocimundo.ListaVehiculos[0], cocimundo.ListaSobrantes, PedidosACargar1);
            /*VerificarPeso(PedidosACargar1, cocimundo.ListaVehiculos[0], cocimundo.ListaSobrantes);*/
-           List<Pedidos> ListaFinal1 = cocimundo.Ruteo_Por_Recorrido(cocimundo.ListaDeRecorrido1, cocimundo.ListaVehiculos[0], cocimundo.ListaSobrantes);
+           ListaFinal1 = cocimundo.Ruteo_Por_Recorrido(cocimundo.ListaDeRecorrido1, cocimundo.ListaVehiculos[0], cocimundo.ListaSobrantes);
             // ORGANIZO MI RUTA-> ARMO UNA LISTA CON LOS PEDIDOS EN SU ORDEN DE ENTREGA DEL MÁS CERCANO AL MÁS LEJANO
             cocimundo.IniciarReparto(ListaFinal1, cocimundo.ListaVehiculos[0]);
-            //IMPRIMIR MAPA RECORRIDO
-            Graphics papel;
-            papel = pictureBox1.CreateGraphics();
-            Pen lapiz = new Pen(Color.Black);
-            System.Drawing.SolidBrush brush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
-            //papel.DrawEllipse(lapiz, 30,50 , 10, 10);
-            for (int i = 1; i < ListaFinal1.Count; i++)
-            {
-                if (ListaFinal1[i].enviado == true)//el pedido ya fue eliminado pinto la ciudad
-                {
-                    papel.FillEllipse(brush, ListaFinal1[i].x, ListaFinal1[i].y, 50, 50);
-                    papel.DrawLine(lapiz, ListaFinal1[i].x, ListaFinal1[i].y, ListaFinal1[i - 1].x, ListaFinal1[i - 1].y);
-                }
-            }
 
         }
-
+        List<Pedidos> ListaFinal2 = new();
         private void button3_Click(object sender, EventArgs e)
         {
             //RECORRIDO 2
@@ -185,26 +215,12 @@ namespace tp_final
             cocimundo.AsignarCostoEnvio(cocimundo.ListaDeRecorrido2, cocimundo.ListaVehiculos[1]);
             List<Pedidos> PedidosACargar2 = new List<Pedidos>();
             cocimundo.ElementosACargar(cocimundo.ListaDeRecorrido2, cocimundo.ListaVehiculos[1], cocimundo.ListaSobrantes, PedidosACargar2);
-            List<Pedidos> ListaFinal2 = cocimundo.Ruteo_Por_Recorrido(cocimundo.ListaDeRecorrido2, cocimundo.ListaVehiculos[1], cocimundo.ListaSobrantes);
+            ListaFinal2 = cocimundo.Ruteo_Por_Recorrido(cocimundo.ListaDeRecorrido2, cocimundo.ListaVehiculos[1], cocimundo.ListaSobrantes);
             //ORGANIZO MI RUTA-> ARMO UNA LISTA CON LOS PEDIDOS EN SU ORDEN DE ENTREGA DEL MÁS CERCANO AL MÁS LEJANO
             //VerificarPeso(PedidosACargar2, cocimundo.ListaVehiculos[1], cocimundo.ListaSobrantes);
             cocimundo.IniciarReparto(ListaFinal2, cocimundo.ListaVehiculos[1]);
-            //IMPRIMIR MAPA RECORRIDO
-            Graphics papel;
-            papel = pictureBox1.CreateGraphics();
-            Pen lapiz = new Pen(Color.Black);
-            System.Drawing.SolidBrush brush = new System.Drawing.SolidBrush(System.Drawing.Color.Orange);
-            //papel.DrawEllipse(lapiz, 30,50 , 10, 10);
-            for (int i = 1; i < ListaFinal2.Count; i++)
-            {
-                if (ListaFinal2[i].enviado == true)//el pedido ya fue eliminado pinto la ciudad
-                {
-                    papel.FillEllipse(brush, ListaFinal2[i].x, ListaFinal2[i].y, 50, 50);
-                    papel.DrawLine(lapiz, ListaFinal2[i].x, ListaFinal2[i].y, ListaFinal2[i - 1].x, ListaFinal2[i - 1].y);
-                }
-            }
         }
-
+        List<Pedidos> ListaFinal3 = new();
         private void button4_Click(object sender, EventArgs e)
         {
          //RECORRIDO 3
@@ -214,24 +230,10 @@ namespace tp_final
            cocimundo.AsignarCostoEnvio(cocimundo.ListaDeRecorrido3, cocimundo.ListaVehiculos[2]);
            List<Pedidos> PedidosACargar3 = new List<Pedidos>();
            cocimundo.ElementosACargar(cocimundo.ListaDeRecorrido3, cocimundo.ListaVehiculos[2], cocimundo.ListaSobrantes, PedidosACargar3);
-           List<Pedidos> ListaFinal3 = cocimundo.Ruteo_Por_Recorrido(cocimundo.ListaDeRecorrido3, cocimundo.ListaVehiculos[2], cocimundo.ListaSobrantes);
+           ListaFinal3 = cocimundo.Ruteo_Por_Recorrido(cocimundo.ListaDeRecorrido3, cocimundo.ListaVehiculos[2], cocimundo.ListaSobrantes);
             // ORGANIZO MI RUTA-> ARMO UNA LISTA CON LOS PEDIDOS EN SU ORDEN DE ENTREGA DEL MÁS CERCANO AL MÁS LEJANO
             // VerificarPeso(PedidosACargar3, cocimundo.ListaVehiculos[2], cocimundo.ListaSobrantes);
             cocimundo.IniciarReparto(ListaFinal3, cocimundo.ListaVehiculos[2]);
-            //IMPRIMIR MAPA RECORRIDO
-            Graphics papel;
-            papel = pictureBox1.CreateGraphics();
-            Pen lapiz = new Pen(Color.Black);
-            System.Drawing.SolidBrush brush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
-            //papel.DrawEllipse(lapiz, 30,50 , 10, 10);
-            for (int i = 1; i < ListaFinal3.Count; i++)
-            {
-                if (ListaFinal3[i].enviado == true)//el pedido ya fue eliminado pinto la ciudad
-                {
-                    papel.FillEllipse(brush, ListaFinal3[i].x, ListaFinal3[i].y, 50, 50);
-                    papel.DrawLine(lapiz, ListaFinal3[i].x, ListaFinal3[i].y, ListaFinal3[i - 1].x, ListaFinal3[i - 1].y);
-                }
-            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -246,5 +248,81 @@ namespace tp_final
           cocimundo.FinDelDia(cocimundo.ListaVehiculos[1]);
             cocimundo.FinDelDia(cocimundo.ListaVehiculos[2]);
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            int i = 1;
+            while (i < ListaFinal1.Count)
+            { if (ListaFinal1[i].ID == 0)
+                {
+                    listView1.Items.Add("FIN RECORRIDO");
+                    break;
+                }
+                listView1.Items.Add(ListaFinal1[i].cliente.nombre);
+                listView1.Items.Add(ListaFinal1[i].cliente.DNI);
+                listView1.Items.Add(ListaFinal1[i].cliente.Direccion);
+                listView1.Items.Add(ListaFinal1[i].cliente.Barrioaux.ToString());
+                listView1.Items.Add(ListaFinal1[i].Pedido.ToString());
+                i++;
+            };
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
+            int i = 1;
+            while (i < ListaFinal2.Count)
+            {
+                if (ListaFinal2[i].ID == 0)
+                {
+                    listView2.Items.Add("FIN RECORRIDO");
+                    break;
+                }
+                listView2.Items.Add(ListaFinal2[i].cliente.nombre);
+                listView2.Items.Add(ListaFinal2[i].cliente.DNI);
+                listView2.Items.Add(ListaFinal2[i].cliente.Direccion);
+                listView2.Items.Add(ListaFinal2[i].cliente.Barrioaux.ToString());
+                listView2.Items.Add(ListaFinal2[i].Pedido.ToString());
+                i++;
+            };
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int i = 1;//empezamos en 1 ya que en 0 esta el deposito
+            while (i < ListaFinal3.Count)
+            {
+                if (ListaFinal3[i].ID == 0)
+                {
+                    listView3.Items.Add("FIN RECORRIDO");
+                    break;
+                }
+                listView3.Items.Add(ListaFinal3[i].cliente.nombre);
+                listView3.Items.Add(ListaFinal3[i].cliente.DNI);
+                listView3.Items.Add(ListaFinal3[i].cliente.Direccion);
+                listView3.Items.Add(ListaFinal3[i].cliente.Barrioaux.ToString());
+                listView3.Items.Add(ListaFinal3[i].Pedido.ToString());
+                i++;
+            };
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+  
+
+   
     }
 }
